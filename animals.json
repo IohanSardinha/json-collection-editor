@@ -1,0 +1,215 @@
+{
+    "animalCollection": [
+        {
+            "speciesName": "Aguará-mirim",
+            "stages": [
+                0
+            ],
+            "previousStage": -1,
+            "learnableMoves": [
+                {
+                    "level": 0,
+                    "moveId": 0
+                },
+                {
+                    "level": 1,
+                    "moveId": 0
+                },
+                {
+                    "level": 2,
+                    "moveId": 0
+                },
+                {
+                    "level": 3,
+                    "moveId": 0
+                }
+            ],
+            "levelProgession": [
+                100,
+                200,
+                300
+            ],
+            "element": 0,
+            "secondaryElement": 8,
+            "health": 100,
+            "strength": 10,
+            "hardness": 10,
+            "magicPower": 5,
+            "magicResistence": 5
+        },
+        {
+            "speciesName": "Aguará",
+            "stages": [
+                0
+            ],
+            "previousStage": -1,
+            "learnableMoves": [
+                {
+                    "level": 0,
+                    "moveId": 0
+                },
+                {
+                    "level": 0,
+                    "moveId": 0
+                }
+            ],
+            "levelProgession": [
+                100,
+                200,
+                300
+            ],
+            "element": 0,
+            "secondaryElement": 8,
+            "health": 100,
+            "strength": 10,
+            "hardness": 10,
+            "magicPower": 5,
+            "magicResistence": 5
+        },
+        {
+            "speciesName": "Aguará",
+            "stages": [
+                0
+            ],
+            "previousStage": -1,
+            "learnableMoves": [
+                {
+                    "level": 0,
+                    "moveId": 0
+                },
+                {
+                    "level": 0,
+                    "moveId": 0
+                }
+            ],
+            "levelProgession": [
+                100,
+                200,
+                300
+            ],
+            "element": 0,
+            "secondaryElement": 8,
+            "health": 100,
+            "strength": 10,
+            "hardness": 10,
+            "magicPower": 5,
+            "magicResistence": 5
+        },
+        {
+            "speciesName": "Aguará",
+            "stages": [
+                0
+            ],
+            "previousStage": -1,
+            "learnableMoves": [
+                {
+                    "level": 0,
+                    "moveId": 0
+                },
+                {
+                    "level": 0,
+                    "moveId": 0
+                }
+            ],
+            "levelProgession": [
+                100,
+                200,
+                300
+            ],
+            "element": 0,
+            "secondaryElement": 8,
+            "health": 100,
+            "strength": 10,
+            "hardness": 10,
+            "magicPower": 5,
+            "magicResistence": 5
+        },
+        {
+            "speciesName": "Aguará",
+            "stages": [
+                0
+            ],
+            "previousStage": -1,
+            "learnableMoves": [
+                {
+                    "level": 0,
+                    "moveId": 0
+                },
+                {
+                    "level": 0,
+                    "moveId": 0
+                }
+            ],
+            "levelProgession": [
+                100,
+                200,
+                300
+            ],
+            "element": 0,
+            "secondaryElement": 8,
+            "health": 100,
+            "strength": 10,
+            "hardness": 10,
+            "magicPower": 5,
+            "magicResistence": 5
+        },
+        {
+            "speciesName": "Aguará",
+            "stages": [
+                0
+            ],
+            "previousStage": -1,
+            "learnableMoves": [
+                {
+                    "level": 0,
+                    "moveId": 0
+                },
+                {
+                    "level": 0,
+                    "moveId": 0
+                }
+            ],
+            "levelProgession": [
+                100,
+                200,
+                300
+            ],
+            "element": 0,
+            "secondaryElement": 8,
+            "health": 100,
+            "strength": 10,
+            "hardness": 10,
+            "magicPower": 5,
+            "magicResistence": 5
+        },
+        {
+            "speciesName": "Aguará",
+            "stages": [
+                0
+            ],
+            "previousStage": -1,
+            "learnableMoves": [
+                {
+                    "level": 0,
+                    "moveId": 0
+                },
+                {
+                    "level": 0,
+                    "moveId": 0
+                }
+            ],
+            "levelProgession": [
+                100,
+                200,
+                300
+            ],
+            "element": 0,
+            "secondaryElement": 8,
+            "health": 100,
+            "strength": 10,
+            "hardness": 10,
+            "magicPower": 5,
+            "magicResistence": 5
+        }
+    ]
+}

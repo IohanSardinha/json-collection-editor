@@ -1,0 +1,18 @@
+{
+    "moveCollection": [
+        {
+            "name": "Fire bite",
+            "element": 0,
+            "power": 50,
+            "special": true,
+            "accuracy": 100
+        },
+        {
+            "name": "Water throw",
+            "element": 1,
+            "power": 50,
+            "special": true,
+            "accuracy": 100
+        }
+    ]
+}
