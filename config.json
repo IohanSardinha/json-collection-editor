@@ -1,0 +1,89 @@
+{
+    "mainFile": "animals.json",
+    "enums":{
+        "element":{
+             "0": "FIRE",
+             "1": "WATER",
+             "2": "PLANT",
+             "3": "AIR",
+             "4": "EARTH",
+             "5": "ELECTRICITY",
+             "6": "LIGHT",
+             "7": "DARKNESS",
+             "8": ""
+        }
+    },  
+    "animalCollection":{
+        "object":{
+            "stages":{
+                "type": "referece",
+                "reference": "animals.json",
+                "hide": true
+            },
+            
+            "element":{
+                "type": "enum",
+                "enum": "element",
+                "enumColor": {
+                     "0": "#FF0000",
+                     "1": "#4169E1",
+                     "2": "#228B22",
+                     "3": "#DCDCDC",
+                     "4": "#8B4513",
+                     "5": "#FFD700",
+                     "6": "#ffff00",
+                     "7": "#000000",
+                     "8": ""
+                }
+            },
+            
+            "secondaryElement":{
+                "type": "enum",
+                "enum": "element",
+                "enumColor": {
+                     "0": "#FF0000",
+                     "1": "#4169E1",
+                     "2": "#228B22",
+                     "3": "#DCDCDC",
+                     "4": "#8B4513",
+                     "5": "#FFD700",
+                     "6": "#ffff00",
+                     "7": "#000000",
+                     "8": ""
+                }
+            },
+            
+            "previousStage":{
+                "hide": true
+            },
+            
+            "learnableMoves":{
+                "hide": true
+            },
+            
+            "levelProgession":{
+                "hide": true
+            },
+            
+            "health":{
+                "hide": true
+            },
+            
+            "strength":{
+                "hide": true
+            },
+            
+            "hardness":{
+                "hide": true
+            },
+            
+            "magicPower":{
+                "hide": true
+            },
+            
+            "magicResistence":{
+                "hide": true
+            }
+        }
+    }
+}
