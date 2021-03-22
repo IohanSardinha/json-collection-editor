@@ -14,6 +14,7 @@
         }
     },  
     "animalCollection":{
+        "fileName":"animals.json",
         "object":{
             "stages":{
                 "type": "referece",
@@ -66,22 +67,27 @@
             },
             
             "health":{
+                "type":"numeric",
                 "hide": true
             },
             
             "strength":{
+                "type":"numeric",
                 "hide": true
             },
             
             "hardness":{
+                "type":"numeric",
                 "hide": true
             },
             
             "magicPower":{
+                "type":"numeric",
                 "hide": true
             },
             
             "magicResistence":{
+                "type":"numeric",
                 "hide": true
             }
         }

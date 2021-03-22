@@ -9,86 +9,68 @@ function camelToTitleCase(string){
     return newString;
 }
 
-function applyConfigToLabel(label, object, field, config, collectionName){
-    let fieldConfig = config[collectionName].object[field];
-    if(fieldConfig)
-    {
-        if(fieldConfig.hide)
-            label.hidden = true;
-        if(fieldConfig.type){
-            if(fieldConfig.type == "enum" && fieldConfig.enum && config.enums && config.enums[fieldConfig.enum])
-            {
-                label.innerHTML = "";
-                label.append(document.createTextNode(config.enums[fieldConfig.enum][object[field]]));  
-                if(fieldConfig.enumColor){
-                    label.style.color = fieldConfig.enumColor[object[field]];
-                    console.log(fieldConfig.enumColor[object[field]]);
-                }
-                if(config.enums[fieldConfig.enum][object[field]] == "")
-                    label.hidden = true;
+function newInputField(key, value, config, collectionName){
+    let item = document.createElement("div");
+    item.className = "mb-3 ms-5 me-5 form-group";
+    
+    let label = document.createElement("label");
+    label.className = "mb-1";
+    label.appendChild(document.createTextNode(camelToTitleCase(key)));
+    item.appendChild(label);
+    
+    let attributeConfig = config[collectionName].object[key];
+    if(attributeConfig && attributeConfig.type){
+        let input;
+        
+        if(attributeConfig.type == "enum" && attributeConfig.enum && config.enums && config.enums[attributeConfig.enum]){
+            
+            input = document.createElement("select");
+            for(let i in config.enums[attributeConfig.enum]){
+                let option = document.createElement("option");
+                option.appendChild(document.createTextNode(config.enums[attributeConfig.enum][i]));
+                if(i == value)
+                    option.selected = true;
+                
+                input.appendChild(option);    
             }
         }
-    }
-}
-
-
-function newListItem(object, config, collectionName) {
-    let item = document.createElement("div");
-    item.className = "border bg-light border-primary rounded mt-2 p-2";
-        
-    let i = 0;
-    for(let field in object){
-        if(i == 0){
-            let title = document.createElement('h6');
-            title.appendChild(document.createTextNode(object[field]));
-            applyConfigToLabel(title, object, field, config, collectionName);
-            item.appendChild(title);
-        }
         else{
-            let label = document.createElement('label');
-            label.appendChild(document.createTextNode(object[field]));
-            label.className = "border rounded pb-1 pt-1 ps-2 pe-2 me-2";
-            applyConfigToLabel(label, object, field, config, collectionName);
-            item.appendChild(label);
+            input = document.createElement("input");
+            
+            if(attributeConfig.type == "numeric"){
+                input.type = 'number';
+            }
+                
+            input.value = value;
         }
         
-        i++;    
-        /*let label = document.createElement('h6');
-        label.appendChild(document.createTextNode(camelToTitleCase(field)));
-        let input = document.createElement('input');
-        input.placeholder = object[field];
-        
-        item.appendChild(label);
-        item.appendChild(input);*/
-        
+        input.className = "form-control form-control-sm";
+        item.appendChild(input);
+            
+    }else{
+        let input = document.createElement("input");
+        input.className = "form-control form-control-sm";
+        input.value = value;
+        item.appendChild(input);
     }
-    
-    let editButton = document.createElement('a');
-    editButton.appendChild(document.createTextNode('Edit'));
-    editButton.href = "#";
-    editButton.className = "btn btn-outline-warning ms-2 me-2";
-    item.appendChild(editButton);
-    
-    let deleteButton = document.createElement('button');
-    deleteButton.appendChild(document.createTextNode('Delete'));
-    deleteButton.className = "btn btn-outline-danger";
-    item.appendChild(deleteButton);
-    
+
     return item;
-    
 }
 
-function parseJson(json, config){
-    let list_container = document.getElementById('list_container');
+function parseJson(json, config, index){
+    let edit_container = document.getElementById('edit_container');
     
     let collectionName = Object.keys(json)[0];
-    
-    let collection_title = document.getElementById('collection_title');
-    collection_title.appendChild(document.createTextNode(camelToTitleCase(collectionName)));
-    
+      
     let collection = json[collectionName];
-    for(let i in collection){
-        list_container.appendChild(newListItem(collection[i], config, collectionName));
+
+    if(!collection[index] || !config[collectionName] || !config[collectionName].object){
+        alert('Invalid  object!');
+        window.location.replace('collection.html');
+    }
+    
+    for(let field in collection[index]){
+        edit_container.appendChild(newInputField(field, collection[index][field], config, collectionName));
     }
 }
 
@@ -101,16 +83,12 @@ function loadConfig(){
 function loadJson(config){
     let url = new URL(window.location.href);
 
-    if(url.searchParams.get('file')){
-        fetch(url.searchParams.get('file'))
-            .then(response => response.json())
-            .then(jsonResponse => parseJson(jsonResponse));
+    if(!url.searchParams.get('file') || (!url.searchParams.get('index') && !url.searchParams.get('new'))){
+        window.location.replace('collection.html');
     }
-    else{
-        fetch(config.mainFile)
-            .then(response => response.json())
-            .then(jsonResponse => parseJson(jsonResponse, config));
-    }
+    fetch(url.searchParams.get('file'))
+        .then(response => response.json())
+        .then(jsonResponse => parseJson(jsonResponse,config , url.searchParams.get('index')));
 }
 
 document.addEventListener('DOMContentLoaded', loadConfig);
