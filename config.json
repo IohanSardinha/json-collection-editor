@@ -1,5 +1,6 @@
 {
     "mainFile": "animals.json",
+    "null" : -1,
     "enums":{
         "element":{
              "0": "FIRE",
@@ -17,7 +18,8 @@
         "fileName":"animals.json",
         "object":{
             "stages":{
-                "type": "referece",
+                "type": "list",
+                "list": "reference",
                 "reference": "animals.json",
                 "hide": true
             },
@@ -55,6 +57,8 @@
             },
             
             "previousStage":{
+                "type": "reference",
+                "reference": "animals.json",
                 "hide": true
             },
             
@@ -63,6 +67,8 @@
             },
             
             "levelProgession":{
+                "type": "list",
+                "list": "numeric",
                 "hide": true
             },
             
@@ -91,5 +97,40 @@
                 "hide": true
             }
         }
+    },
+    "moveCollection":{
+        "fileName":"moves.json",
+        "object":{
+            "name": {
+            },
+            "element": {
+                "type":"enum",
+                "enum":"element",
+                "enumColor": {
+                     "0": "#FF0000",
+                     "1": "#4169E1",
+                     "2": "#228B22",
+                     "3": "#DCDCDC",
+                     "4": "#8B4513",
+                     "5": "#FFD700",
+                     "6": "#ffff00",
+                     "7": "#000000",
+                     "8": ""
+                }
+            },
+            "power": {
+                "type":"numeric",
+                "label":"Pw"
+            },
+            "special": {
+                "type":"bool",
+                "true":"SP",
+                "false":"hide"
+            },
+            "accuracy": {
+                "type":"numeric",
+                "label":"Acc"
+            }
+        }   
     }
 }

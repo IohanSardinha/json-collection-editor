@@ -10,10 +10,23 @@
     
     <body>
         
-        <div align="center">
-            <form style="width: 50%; text-align: left" id="edit_container">
+        <div class="modal fade" id="referenceModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal_title"></h5>
+                </div>
+                <div class="modal-body" id="modal_body"></div>
+            </div>
+          </div>
+        </div>
+        
+        <h2 align="center">Edit object</h2>
+        <div align="center" class="mb-3 mt-3">
+            <form class="border border-primary rounded pt-3 bg-light" style="width: 50%; text-align: left" id="edit_container">
             </form>
         </div>
+            <button id="saveButton" onclick="saveButton();" data-toggle="modal" data-target="#exempleModal" class="btn btn-success position-fixed bottom-0 end-0 mb-3 me-5"> <b class="font-weigth-bold">✓</b> Save changes</button> 
     </body>
     
 </html>

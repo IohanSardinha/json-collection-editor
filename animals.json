@@ -3,7 +3,7 @@
         {
             "speciesName": "Aguará-mirim",
             "stages": [
-                0
+                1
             ],
             "previousStage": -1,
             "learnableMoves": [
@@ -40,9 +40,9 @@
         {
             "speciesName": "Aguará",
             "stages": [
-                0
+                2
             ],
-            "previousStage": -1,
+            "previousStage": 0,
             "learnableMoves": [
                 {
                     "level": 0,
@@ -67,11 +67,9 @@
             "magicResistence": 5
         },
         {
-            "speciesName": "Aguará",
-            "stages": [
-                0
-            ],
-            "previousStage": -1,
+            "speciesName": "Aguaráçu",
+            "stages": [],
+            "previousStage": 1,
             "learnableMoves": [
                 {
                     "level": 0,
@@ -88,7 +86,7 @@
                 300
             ],
             "element": 0,
-            "secondaryElement": 8,
+            "secondaryElement": 7,
             "health": 100,
             "strength": 10,
             "hardness": 10,
@@ -96,10 +94,8 @@
             "magicResistence": 5
         },
         {
-            "speciesName": "Aguará",
-            "stages": [
-                0
-            ],
+            "speciesName": "Ariranha",
+            "stages": [],
             "previousStage": -1,
             "learnableMoves": [
                 {
@@ -116,7 +112,7 @@
                 200,
                 300
             ],
-            "element": 0,
+            "element": 1,
             "secondaryElement": 8,
             "health": 100,
             "strength": 10,

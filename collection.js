@@ -10,9 +10,9 @@ function camelToTitleCase(string){
 }
 
 function applyConfigToLabel(label, object, field, config, collectionName){
-    let fieldConfig = config[collectionName].object[field];
-    if(fieldConfig)
+    if(config[collectionName] && config[collectionName].object && config[collectionName].object[field])
     {
+        let fieldConfig = config[collectionName].object[field];
         if(fieldConfig.hide)
             label.hidden = true;
         if(fieldConfig.type){
@@ -22,17 +22,41 @@ function applyConfigToLabel(label, object, field, config, collectionName){
                 label.append(document.createTextNode(config.enums[fieldConfig.enum][object[field]]));  
                 if(fieldConfig.enumColor){
                     label.style.color = fieldConfig.enumColor[object[field]];
-                    console.log(fieldConfig.enumColor[object[field]]);
                 }
                 if(config.enums[fieldConfig.enum][object[field]] == "")
                     label.hidden = true;
             }
+            if(fieldConfig.type == "bool"){
+                let value = label.innerHTML;
+                if(fieldConfig.true && value == "true"){
+                    if(fieldConfig.true == 'hide')
+                        label.hidden = true;
+                    else{
+                        label.innerHTML = "";
+                        label.appendChild(document.createTextNode(fieldConfig.true));
+                    }
+                }else if(fieldConfig.false && value == 'false'){
+                    if(fieldConfig.false == 'hide')
+                        label.hidden = true;
+                    else{
+                        label.innerHTML = "";
+                        label.appendChild(document.createTextNode(fieldConfig.false));
+                    }
+                }
+
+            }
+        }
+        if(fieldConfig.label){
+            let value = label.innerHTML;
+
+            label.innerHTML = fieldConfig.label + ": "+value;
         }
     }
 }
 
 
 function newListItem(index, object, config, collectionName) {
+
     let item = document.createElement("div");
     item.className = "border bg-light border-primary rounded mt-2 p-2";
         
@@ -56,10 +80,12 @@ function newListItem(index, object, config, collectionName) {
     }
     
 
-    
+    let url = new URL(window.location.href);
+    let fileName = url.searchParams.get('file') || config[collectionName].fileName;
+
     let editButton = document.createElement('a');
     editButton.appendChild(document.createTextNode('Edit'));
-    editButton.href = "editor.html?file="+config[collectionName].fileName+"&index="+index;
+    editButton.href = "editor.html?file="+fileName+"&index="+index;
     editButton.className = "btn btn-outline-warning ms-2 me-2";
     item.appendChild(editButton);
     
@@ -100,7 +126,7 @@ function loadJson(config){
     if(url.searchParams.get('file')){
         fetch(url.searchParams.get('file'))
             .then(response => response.json())
-            .then(jsonResponse => parseJson(jsonResponse));
+            .then(jsonResponse => parseJson(jsonResponse, config));
     }
     else{
         fetch(config.mainFile)
